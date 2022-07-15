@@ -24,7 +24,7 @@ if ( CMAKE_COMPILER_IS_GNUCC )
     target_compile_options("ImGui" PRIVATE -Wall -Wextra)
 endif()
 if ( MSVC )
-    target_compile_options("ImGui" PRIVATE /W4)
+    target_compile_options("ImGui" PRIVATE /W3)
 endif()
 
 
