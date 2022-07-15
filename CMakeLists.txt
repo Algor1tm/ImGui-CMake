@@ -1,7 +1,7 @@
 ﻿# CMakeList.txt : CMake project for ImGui-CMake, include source and define
 # project specific logic here.
 #
-cmake_minimum_required (VERSION 3.2)
+cmake_minimum_required (VERSION 3.16)
 
 project ("ImGui")
 set(CMAKE_CXX_STANDARD 17)
@@ -19,6 +19,13 @@ add_library (ImGui
     "imstb_rectpack.h"
     "imstb_textedit.h"
     "imstb_truetype.h")
+
+if ( CMAKE_COMPILER_IS_GNUCC )
+    target_compile_options("ImGui" PRIVATE -Wall -Wextra)
+endif()
+if ( MSVC )
+    target_compile_options("ImGui" PRIVATE /W4)
+endif()
 
 
 # TODO: Add tests and install targets if needed.
